@@ -1,20 +1,20 @@
-# OIC Website - Containerized Laravel Application With Docker
+# OIC Website - Containerize Laravel Application By Docker Compose
 
-To containerize a web application in lightweight environment known as containers, I use Docker Compose for services, framework such as Laravel Application, Nginx Server, MySQL Database, phpMyAdmin...
+To containerize a web application in lightweight environment known as containers, I use Docker Compose for the service, framework such as Laravel Application, Nginx Server, MySQL Database, phpMyAdmin...
 
 | System | Language | Framework | Web Server | Database |
 | ------- | -------- | --------- |----------|--------|
 | Ubuntu 20.04 | PHP      | Laravel   | Nginx | MySQL (phpMyAdmin) |
 
-## Introdution
+## Introduction
 
-OIC Website is a website which allowed user-host (event host) to handle the events post (view, create, edit, delete), generete the event code for guest (event guest) and guest is able to viewing the event with the specified code
+OIC Website is website which allowed host user (host of event) to handle their event post (view, create, edit, delete), generete their invited code (event code) for their guest (guest of event). The invited code is way help that their guest are able to viewing the event and the guest could to post their comment on the event by create an account and log in.
 
 ![Homepage](images/oicapp.gif)    
 
 ## Features
 
-### Host & Guest Feature
+### Host & Guest
 The website has two role for users include:
 - Host - Who create event post:
     - All of the guest features
@@ -34,13 +34,13 @@ The website has two role for users include:
 
 ![View all events](images/view.jpg)
 
-In the future, I will complete the generate Card for the event ^^
+In the future, I will complete the card generation for the event with vary of template ^^
 
-### Route & Sitemap
-- `/` : Join Feature
+### Routes & Sitemap
+- `/` : View an event with invited code
 - `/about` : About OIC Website
-- `/event` : All events
-    - `/event/{uuid}` : An event
+- `/event` : View all events
+    - `/event/{uuid}` : View an event
     - `/event/create` : Create new event
     - `/event/{uuid}/edit` : Edit an event
 - `/login` : Log in
@@ -85,7 +85,7 @@ sudo docker-compose exec app composer update
 #clear config cache
 sudo docker-compose exec app php artisan config:cache
 ```
-- Access mysql and grant for `mysql` user root **(only if the error message appear ^^)**:
+- Access mysql and grant for `mysql` user root **(this step is helpful when error appear suddently ^^)**:
 
 ```shell
 sudo docker-compose exec db bash
@@ -112,5 +112,5 @@ sudo docker-compose exec app php artisan storage:link
 
  Finaly, access `http://localhost:8080` to view OIC Website and `http://localhost:8081` to log in `phpMyAdmin` portal.
 
-## PS
-Maybe in the `Setup & Run` process, the bug will come up. Try to search it with Google to get the fixing way (because I tried ^^) - Good luck!
+## Notes
+Hi, maybe in the `Setup & Run` process, the bug will come up. Try to search it with Google to get the fixing way, all method are arround there (because I tried and got success ^^) - Good luck!
