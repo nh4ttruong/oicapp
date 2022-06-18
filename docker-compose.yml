@@ -1,0 +1,78 @@
+version: '3'
+services:
+
+  #PHP Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: oicapp-image
+    container_name: oic-app
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - oic-app
+
+  #Nginx Service
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "8080:80"
+      - "9443:443"
+    volumes:
+      - ./:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - oic-app
+
+  #MySQL Service
+  db:
+    image: mysql:5.7.22
+    container_name: oicappdb
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: oicappdb
+      MYSQL_ROOT_PASSWORD: oic
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql/
+      - ./mysql/my.cnf:/etc/mysql/my,cnf
+    networks:
+      - oic-app
+
+  phpmyadmin:
+      image: phpmyadmin/phpmyadmin
+      restart: always
+      depends_on:
+        - db
+      ports:
+        - "8081:80"
+      environment:
+        PMA_HOST: db
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      networks:
+        - oic-app
+
+#Docker Networks
+networks:
+  oic-app:
+    driver: bridge
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local

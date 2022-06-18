@@ -1,0 +1,286 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,300,600,700,900);
+
+body {
+    background: #dce1df;
+    color: #4f585e;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-rendering: optimizeLegibility;
+}
+
+a.btn {
+    background: #e27db5;
+    border-radius: 4px;
+    box-shadow: 0 2px 0px 0 #5493d349;
+    color: #ffffff;
+    display: inline-block;
+    /* padding: 6px 30px 8px; */
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+}
+
+button.btn.btn-custom {
+    background: #e27db5;
+    border-radius: 4px;
+    box-shadow: 0 2px 0px 0 #5493d349;
+    color: #ffffff;
+    display: inline-block;
+    /* padding: 6px 30px 8px; */
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+}
+
+
+i.far.i-custom, i.fas.i-custom {
+    color: #5494d3;
+    border-radius: 4px;
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.09);
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+    transition: all 0.1s 0s ease-out;
+}
+
+div.row.comment-box::-webkit-scrollbar {
+    display: none;
+}
+
+.no-touch a.btn:hover, button.btn.btn-custom:hover {
+    background: #5494d3;
+    color:#ffffff;
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+    transform: translateY(-2px);
+    transition: all 0.25s 0s ease-out;
+}
+
+i.far.i-custom:hover,  i.fas.i-custom:hover {
+    color: #e27db5;
+    box-shadow: 0px 8px 2px 0 rgba(0, 0, 0, 0.075);
+    transform: translateY(-2px);
+    transition: all 0.25s 0s ease-out;
+}
+
+.no-touch a.btn:active,
+a.btn:active {
+    background: #008a93;
+    box-shadow: 0 1px 0px 0 rgba(255, 255, 255, 0.25);
+    transform: translate3d(0, 1px, 0);
+    transition: all 0.025s 0s ease-out;
+}
+
+div.ecards {
+    margin: 30px auto;
+    max-width: 960px;
+    text-align: center;
+}
+
+div.ecard {
+    background: #ffffff;
+    display: inline-block;
+    margin: 8px;
+    max-width: 300px;
+    perspective: 1000;
+    position: relative;
+    text-align: left;
+    transition: all 0.3s 0s ease-in;
+    width: 300px;
+    z-index: 1;
+    box-shadow: 0 3px 0px 0 #e27db45e;
+}
+
+div.ecard img {
+    position:absolute;
+    width: 100%;
+    height:auto;
+    display:block;
+    overflow:hidden;
+}
+
+div.ecard .ecard__image-holder {
+    background: rgba(0, 0, 0, 0.1);
+    height: 0;
+    padding-bottom: 75%;
+    display:block;
+    position:relative;
+    overflow:hidden;
+}
+
+div.ecard div.ecard-title {
+    background: #ffffff;
+    padding: 6px 15px 10px;
+    position: relative;
+    z-index: 0;
+}
+
+div.ecard div.ecard-title a.toggle-info {
+    border-radius: 32px;
+    height: 32px;
+    padding: 0;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    width: 32px;
+}
+
+div.ecard div.ecard-title a.toggle-info span {
+    background: #ffffff;
+    display: block;
+    height: 2px;
+    position: absolute;
+    top: 16px;
+    transition: all 0.15s 0s ease-out;
+    width: 12px;
+}
+
+div.ecard div.ecard-title a.toggle-info span.left {
+    right: 14px;
+    transform: rotate(45deg);
+}
+
+div.ecard div.ecard-title a.toggle-info span.right {
+    left: 14px;
+    transform: rotate(-45deg);
+}
+
+div.ecard div.ecard-title h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    margin: 0;
+    padding: 0;
+}
+
+div.ecard div.ecard-title h2 small {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+div.ecard div.ecard-description {
+    padding: 0 15px 10px;
+    position: relative;
+    font-size: 12px;
+}
+
+div.ecard div.ecard-actions {
+    box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
+    padding: 10px 15px 20px;
+    text-align: center;
+}
+
+div.ecard div.ecard-flap {
+    background: #d9d9d9;
+    position: absolute;
+    width: 100%;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+}
+
+div.ecard div.flap1 {
+    transition: all 0.3s 0.3s ease-out;
+    z-index: -1;
+}
+
+div.ecard div.flap2 {
+    transition: all 0.3s 0s ease-out;
+    z-index: -2;
+    box-shadow: 0 2px 1px 0 #e27db45e;
+}
+
+div.ecards.showing div.ecard {
+    cursor: pointer;
+    opacity: 0.6;
+    transform: scale(0.88);
+}
+
+.no-touch div.ecards.showing div.ecard:hover {
+    opacity: 0.94;
+    transform: scale(0.92);
+}
+
+div.ecard.show {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+}
+
+div.ecard.show div.ecard-title a.toggle-info {
+    background: #ff6666 !important;
+}
+
+div.ecard.show div.ecard-title a.toggle-info span {
+    top: 15px;
+}
+
+div.ecard.show div.ecard-title a.toggle-info span.left {
+    right: 10px;
+}
+
+div.ecard.show div.ecard-title a.toggle-info span.right {
+    left: 10px;
+}
+
+div.ecard.show div.ecard-flap {
+    background: #ffffff;
+    transform: rotateX(0deg);
+}
+
+div.ecard.show div.flap1 {
+    transition: all 0.3s 0s ease-out;
+}
+
+div.ecard.show div.flap2 {
+    transition: all 0.3s 0.2s ease-out;
+}
+
+div.card.bg-custom {
+    background: #eaf3fc;
+}
+
+div.card-body.bg-custom {
+    background: #ffeef8;
+}
+
+.code-input {
+    position: relative;
+    font-size: 1em;
+    padding: 3px;
+    background: linear-gradient(21deg, #e27db5, #5494d3);
+    border-radius: 1.5em;
+    display: inline-block;
+}
+
+.code-input span {
+    transform: scale(0.993, 0.94);
+    transition: transform 0.5s, opacity 0.25s;
+    opacity: 0;
+    position: absolute;
+    z-index: 0;
+    margin: 4px;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 3px #fff, 0 0 0 4px #fff, 3px -3px 30px #e27db5, -3px 3px 30px #5494d3;
+}
+
+.code-input *:not(span) {
+    position: relative;
+    display: inherit;
+    border-radius: inherit;
+    margin: 0;
+    border: none;
+    outline: none;
+    padding: 0 0.325em;
+    z-index: 1;
+}
+
+.code-input input {
+    font-family: inherit;
+    line-height: inherit;
+    color: #2e3750;
+    min-width: 12em;
+}
